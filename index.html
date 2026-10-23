@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Slept On It — Store & Community for Young Australian Artists</title>
 <meta name="description" content="An editorial art store and community for young Australian artists — a running shelf of original work, an exhibition archive, and a late-night talk room. Found on the screen, before the eyes close.">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var r=document.documentElement;r.classList.add('js');var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(!rm){r.classList.add('intro-lock');setTimeout(function(){r.classList.remove('intro-lock')},30000);}})();</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -537,9 +537,49 @@
     .apply-banner .btn{ width:100%; justify-content:center; }
     .apply-row{ flex-direction:column; }
   }
+  /* ---------- Intro: full-screen video, then a shutter lift into the site ---------- */
+  .intro{ display:none; }
+  .js .intro{
+    display:block; position:fixed; inset:0; z-index:300; background:var(--ivory); overflow:hidden;
+    clip-path:inset(0 0 0 0); transition:clip-path 1.2s cubic-bezier(.76,0,.24,1);
+  }
+  .intro.out{ clip-path:inset(0 0 100% 0); pointer-events:none; }
+  .intro-video, .intro-photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .intro-photo{ display:none; object-position:20% 46%; transform:scale(1.12); }
+  .intro-photo.on{ display:block; animation:introZoom 4.2s cubic-bezier(.2,.6,.2,1) forwards; }
+  @keyframes introZoom{ to{ transform:scale(1); } }
+  .intro-mark{
+    position:absolute; left:0; right:0; bottom:14%; text-align:center; pointer-events:none;
+    font-family:var(--f-script); font-size:clamp(46px,9vw,110px); line-height:1; color:#f6f5f0;
+    text-shadow:0 2px 24px rgba(34,31,25,.35); opacity:0; transition:opacity 1.2s ease .6s;
+  }
+  .intro-mark.on{ opacity:1; }
+  .intro-skip{
+    position:absolute; right:max(20px, env(safe-area-inset-right, 0px)); bottom:max(24px, env(safe-area-inset-bottom, 0px));
+    font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#f6f5f0;
+    background:rgba(70,66,58,.38); border:1px solid rgba(246,245,240,.55); border-radius:999px; padding:9px 16px; cursor:pointer;
+  }
+  .intro-skip:hover{ background:rgba(70,66,58,.55); }
+  .intro-skip:focus-visible{ outline:2px solid var(--lime); outline-offset:3px; }
+  html.intro-lock, html.intro-lock body{ overflow:hidden; }
+  .hero-content > *{ transition:opacity .9s ease, transform .9s ease; }
+  html.intro-lock .hero-content > *{ opacity:0; transform:translateY(16px); }
+  .hero-content > :nth-child(2){ transition-delay:.55s; }
+  .hero-content > :nth-child(3){ transition-delay:.7s; }
+  .hero-content > :nth-child(4){ transition-delay:.85s; }
+  .hero-content > :nth-child(5){ transition-delay:1s; }
+  .hero-content > :nth-child(1){ transition-delay:.4s; }
+  @media (prefers-reduced-motion: reduce){ .intro{ display:none !important; } }
 </style>
 </head>
 <body>
+
+<div class="intro" id="intro" aria-label="Intro">
+  <video class="intro-video" id="introVideo" src="intro.mp4" muted playsinline preload="auto"></video>
+  <img class="intro-photo" id="introPhoto" alt="">
+  <div class="intro-mark" id="introMark">Slept on it</div>
+  <button class="intro-skip" id="introSkip" type="button">Skip</button>
+</div>
 
 <nav class="nav" id="nav">
   <a href="#top" class="nav-mark">
@@ -1201,5 +1241,49 @@
   });
 </script>
 
+<script>
+(function(){
+  var root = document.documentElement;
+  var intro = document.getElementById('intro');
+  if(!intro){ root.classList.remove('intro-lock'); return; }
+  var video = document.getElementById('introVideo');
+  var photo = document.getElementById('introPhoto');
+  var mark  = document.getElementById('introMark');
+  var done = false, fellBack = false, startTimer = null;
+
+  function finish(){
+    if(done) return; done = true;
+    clearTimeout(startTimer);
+    try{ video.pause(); }catch(e){}
+    intro.classList.add('out');
+    root.classList.remove('intro-lock');
+    setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); }, 1500);
+  }
+  // No video file (or it cannot play): use the hero photo as a short slow-zoom intro.
+  function fallback(){
+    if(done || fellBack) return; fellBack = true;
+    clearTimeout(startTimer);
+    try{ video.pause(); }catch(e){}
+    video.style.display = 'none';
+    var heroImg = document.querySelector('.hero-media img');
+    if(heroImg){ photo.src = heroImg.currentSrc || heroImg.src; }
+    photo.classList.add('on');
+    mark.classList.add('on');
+    setTimeout(finish, 4200);
+  }
+
+  document.getElementById('introSkip').addEventListener('click', finish);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') finish(); });
+
+  video.addEventListener('ended', finish);
+  video.addEventListener('error', fallback);
+  video.addEventListener('playing', function(){ clearTimeout(startTimer); });
+  startTimer = setTimeout(fallback, 5000);
+  try{
+    var pr = video.play();
+    if(pr && pr.catch) pr.catch(fallback);
+  }catch(e){ fallback(); }
+})();
+</script>
 </body>
 </html>
