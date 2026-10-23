@@ -585,7 +585,7 @@
 <body>
 
 <div class="intro" id="intro" aria-label="Intro">
-  <video class="intro-video" id="introVideo" src="intro.mp4" muted playsinline preload="auto"></video>
+  <video class="intro-video" id="introVideo" muted playsinline preload="auto"></video>
   <img class="intro-photo" id="introPhoto" alt="">
   <div class="intro-veil"></div>
   <div class="intro-haze"></div>
@@ -1288,7 +1288,15 @@
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') finish(); });
 
   video.addEventListener('ended', finish);
-  video.addEventListener('error', fallback);
+  // Phones (portrait / narrow screens) get intro-m.mp4; laptops get intro.mp4.
+  // If the phone file is missing, the laptop video plays instead.
+  var isPhone = window.matchMedia && matchMedia('(max-width: 760px), (orientation: portrait)').matches;
+  var triedDesktop = !isPhone;
+  video.addEventListener('error', function(){
+    if(!triedDesktop){ triedDesktop = true; video.src = 'intro.mp4'; video.load(); var q = video.play(); if(q && q.catch) q.catch(fallback); return; }
+    fallback();
+  });
+  video.src = isPhone ? 'intro-m.mp4' : 'intro.mp4';
   video.addEventListener('playing', function(){ clearTimeout(startTimer); });
   startTimer = setTimeout(fallback, 5000);
   try{
