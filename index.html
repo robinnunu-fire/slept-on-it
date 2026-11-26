@@ -179,9 +179,8 @@
   .frame.has-img .photo{ opacity:1; }
   @media (hover:hover){
     .frame{ transition:opacity 1s ease, transform 1.2s cubic-bezier(.2,.6,.2,1); }
-    .frame:hover .edge{ stroke:var(--lime-deep); stroke-width:2; }
+    .frame:hover .edge{ stroke:#e8352f; stroke-width:1.6; }
   }
-  .frame.is-active .edge{ stroke:#e8352f; stroke-width:1.6; }
 
   /* edit mode (open the site with ?edit): click a frame to preview a photo, drag to move, scroll to zoom */
   html.frame-edit .frame{ cursor:pointer; }
@@ -1305,19 +1304,6 @@ var FRAMES = {
     state[n] = { src: c.src, fx: c.fx == null ? .5 : c.fx, fy: c.fy == null ? .5 : c.fy, zoom: c.zoom || 1, file: c.src };
     if(c.alt){ svg.querySelector('#f-' + n).setAttribute('aria-label', c.alt); }
     apply(n);
-  });
-
-  /* a clicked frame turns red until another one (or the page) is clicked */
-  var activeFrame = null;
-  function setActive(g){
-    if(activeFrame === g) return;
-    if(activeFrame) activeFrame.classList.remove('is-active');
-    activeFrame = g;
-    if(g){ g.classList.add('is-active'); }
-  }
-  document.addEventListener('pointerdown', function(e){
-    var g = e.target && e.target.closest ? e.target.closest('#heroArt .frame') : null;
-    setActive(g);
   });
 
   /* ---------- edit mode ---------- */
