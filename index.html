@@ -243,11 +243,11 @@
   .shelf::-webkit-scrollbar-track{ background:transparent; }
   .shelf::-webkit-scrollbar-thumb{ background:var(--line-strong); border-radius:99px; }
   .shelf-item{
-    scroll-snap-align:start; background:var(--paper); border:1px solid var(--line); border-radius:3px;
+    scroll-snap-align:start; background:var(--paper); border:1px solid #000; border-radius:3px;
     padding:10px; display:flex; flex-direction:column; gap:7px;
     transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .shelf-item:hover{ transform:translateY(-3px); border-color:var(--line-strong); box-shadow:0 14px 26px -16px rgba(70,66,58,.22); }
+  .shelf-item:hover{ transform:translateY(-3px); border-color:#000; box-shadow:0 14px 26px -16px rgba(70,66,58,.22); }
   .shelf-swatch{ aspect-ratio:1/1; border-radius:2px; overflow:hidden; position:relative; }
   .shelf-swatch svg{ position:absolute; inset:0; width:100%; height:100%; }
   .shelf-artist{ font-family:var(--f-mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--charcoal-dim); }
