@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Urbanist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Urbanist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -27,7 +27,8 @@
     --line-strong: rgba(70,66,58,0.26);
     --hero-deep: #221f19;
 
-    --f-heading: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --f-script: 'Mea Culpa', cursive;
+    --f-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
     --f-body: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
     --f-mono: 'JetBrains Mono', ui-monospace, monospace;
 
@@ -100,7 +101,7 @@
     70%{ box-shadow:0 0 0 8px rgba(159,219,78,0); }
     100%{ box-shadow:0 0 0 0 rgba(159,219,78,0); }
   }
-  .nav-mark-text{ font-family:var(--f-heading); font-weight:500; font-size:26px; letter-spacing:-.03em; line-height:1; }
+  .nav-mark-text{ font-family:var(--f-script); font-weight:400; font-size:30px; letter-spacing:.01em; line-height:1; }
   .nav-mark-sub{ font-family:var(--f-body); font-weight:400; font-size:11px; letter-spacing:.14em; color:#000; text-transform:none; display:block; margin-top:-2px; }
 
   .nav-links{ display:flex; align-items:center; gap:32px; }
@@ -148,8 +149,8 @@
   }
   .hero-copy{ position:relative; z-index:2; min-width:0; }
   .hero-title{
-    font-family:var(--f-heading); font-weight:500;
-    font-size:clamp(58px, 7.4vw, 118px); line-height:0.92; letter-spacing:-.04em;
+    font-family:var(--f-script); font-weight:400;
+    font-size:clamp(64px, 8.2vw, 132px); line-height:0.9; letter-spacing:0;
     color:#000; margin:0 0 18px; max-width:15ch;
   }
   .hero-title em{ font-style:normal; color:#000; background:linear-gradient(transparent 64%, var(--lime) 64%, var(--lime) 92%, transparent 92%); padding:0 .06em; }
@@ -490,7 +491,7 @@
   /* ---------------- FOOTER ---------------- */
   footer{ background:var(--ivory); border-top:.75px solid #000; padding:52px var(--edge) 28px; }
   .foot-top{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; padding-bottom:40px; border-bottom:.75px solid #000; }
-  .foot-brand .nav-mark-text{ font-size:24px; }
+  .foot-brand .nav-mark-text{ font-size:28px; }
   .foot-brand p{ color:#000; font-size:13px; font-weight:300; max-width:300px; margin:14px 0 0; line-height:1.6; }
   .foot-cols{ display:flex; gap:64px; flex-wrap:wrap; }
   .foot-col h4{ font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; color:#000; text-transform:uppercase; margin:0 0 16px; font-weight:500; }
@@ -535,11 +536,6 @@
     .apply-banner .btn{ width:100%; justify-content:center; }
     .apply-row{ flex-direction:column; }
   }
-  /* headline sans: tight and quiet, like the reference */
-  .section-head h2, .interview-heading, .chapter h3, .exhibit-poster-title, .composer h4, .t-step h3,
-  .apply-banner h3, .notify-card h2, .mobile-panel a, .hero-tagline, .interview-quote{ letter-spacing:-.025em; }
-  .section-head h2, .interview-heading{ line-height:1.04; }
-
   /* ---------- Intro: full-screen video, then a shutter lift into the site ---------- */
   .intro{ display:none; }
   .intro-off .intro{ display:none !important; }
@@ -558,7 +554,7 @@
   .intro.out .intro-mark{ opacity:0; transition:opacity .8s ease; }
   .intro-mark{
     position:absolute; left:0; right:0; bottom:14%; text-align:center; pointer-events:none;
-    font-family:var(--f-heading); font-weight:500; letter-spacing:-.04em; font-size:clamp(46px,9vw,110px); line-height:1; color:#f6f5f0;
+    font-family:var(--f-script); font-size:clamp(46px,9vw,110px); line-height:1; color:#f6f5f0;
     text-shadow:0 2px 24px rgba(34,31,25,.35); opacity:0; transition:opacity 1.2s ease .6s;
   }
   .intro-mark.on{ opacity:1; }
