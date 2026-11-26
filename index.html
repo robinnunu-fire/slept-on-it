@@ -518,7 +518,7 @@
   @media (max-width:980px){
     .hero{ align-items:flex-start; }
     .hero-stage{ grid-template-columns:1fr; padding-top:84px; gap:24px; }
-    .hero-art{ order:-1; }
+    .hero-art{ order:-1; margin-inline:calc(var(--edge) * -0.5); }
     .hero-art svg{ max-height:none; }
     .hero-title{ font-size:clamp(64px, 17vw, 120px); }
   }
@@ -1260,12 +1260,6 @@ var FRAMES = {
   var EDIT = /[?&]edit\b/.test(location.search);
   var state = {};
   var names = [].map.call(svg.querySelectorAll('.frame'), function(g){ return g.getAttribute('data-frame'); });
-
-  // phones see the middle of the collage, bigger
-  var mq = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
-  function setView(){ svg.setAttribute('viewBox', mq && mq.matches ? '330 0 800 966.36' : '0 0 1369.74 966.36'); }
-  setView();
-  if(mq){ if(mq.addEventListener) mq.addEventListener('change', setView); else if(mq.addListener) mq.addListener(setView); }
 
   // stagger the frames in when the intro ends
   names.forEach(function(n, i){
