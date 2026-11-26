@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Slept On It — Store & Community for Young Australian Artists</title>
 <meta name="description" content="An editorial art store and community for young Australian artists — a running shelf of original work, an exhibition archive, and a late-night talk room. Found on the screen, before the eyes close.">
-<script>(function(){var r=document.documentElement;r.classList.add('js');var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;var ed=/[?&]edit\b/.test(location.search);if(ed){r.classList.add('intro-off');}if(!rm&&!ed){r.classList.add('intro-lock');setTimeout(function(){r.classList.remove('intro-lock')},30000);}})();</script>
+<script>document.documentElement.classList.add('js');</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -538,47 +538,9 @@
     .apply-banner .btn{ width:100%; justify-content:center; }
     .apply-row{ flex-direction:column; }
   }
-  /* ---------- Intro: full-screen video, then a shutter lift into the site ---------- */
-  .intro{ display:none; }
-  .intro-off .intro{ display:none !important; }
-  .js .intro{
-    display:block; cursor:pointer; -webkit-tap-highlight-color:transparent; position:fixed; inset:0; z-index:300; background:var(--ivory); overflow:hidden;
-    opacity:1; transition:opacity 2.2s cubic-bezier(.4,0,.2,1) .35s;
-  }
-  .intro.out{ opacity:0; pointer-events:none; }
-  .intro-video, .intro-photo{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-  }
-  .intro-video{ object-position:28% 50%; }
-  .intro-photo{ display:none; object-position:20% 46%; transform:scale(1.12); }
-  .intro-photo.on{ display:block; animation:introZoom 4.2s cubic-bezier(.2,.6,.2,1) forwards; }
-  @keyframes introZoom{ to{ transform:scale(1); } }
-  .intro.out .intro-mark{ opacity:0; transition:opacity .8s ease; }
-  .intro-mark{
-    position:absolute; left:0; right:0; bottom:14%; text-align:center; pointer-events:none;
-    font-family:var(--f-script); font-size:clamp(46px,9vw,110px); line-height:1; color:#f6f5f0;
-    text-shadow:0 2px 24px rgba(34,31,25,.35); opacity:0; transition:opacity 1.2s ease .6s;
-  }
-  .intro-mark.on{ opacity:1; }
-  html.intro-lock, html.intro-lock body{ overflow:hidden; }
-  .hero-copy > *{ transition:opacity 1.4s ease, transform 1.6s cubic-bezier(.2,.6,.2,1); }
-  html.intro-lock .hero-copy > *{ opacity:0; transform:translateY(10px); }
-  .hero-copy > :nth-child(1){ transition-delay:1s; }
-  .hero-copy > :nth-child(2){ transition-delay:1.25s; }
-  .hero-copy > :nth-child(3){ transition-delay:1.5s; }
-  .hero-copy > :nth-child(4){ transition-delay:1.75s; }
-  .hero-copy > :nth-child(5){ transition-delay:1.7s; }
-  html.intro-lock .frame{ opacity:0; transform:translateY(10px); }
-  @media (prefers-reduced-motion: reduce){ .intro{ display:none !important; } }
 </style>
 </head>
 <body>
-
-<div class="intro" id="intro" aria-label="Intro">
-  <video class="intro-video" id="introVideo" muted playsinline preload="auto"></video>
-  <img class="intro-photo" id="introPhoto" alt="">
-  <div class="intro-mark" id="introMark">Slept on it</div>
-</div>
 
 <nav class="nav" id="nav">
   <a href="#top" class="nav-mark">
@@ -702,7 +664,7 @@
 
     <div class="shelf-item" data-cat="craft" data-sub="stationery"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Insomnia Notebook</span><div class="shelf-meta"><span class="shelf-price">$28</span><span class="shelf-edition">Ed. 14/50</span></div></div>
   </div>
-  <p class="shelf-hint">drag to browse → &nbsp;·&nbsp; <a href="shop.html" style="text-decoration:underline">shop all</a></p>
+  <p class="shelf-hint">drag to browse → &nbsp;·&nbsp; <a href="shop.html" style="text-decoration:underline">view the whole collection</a></p>
 </section>
 
 <section class="community" id="community">
@@ -1082,8 +1044,8 @@
       </div>
       <div class="foot-cols">
         <div class="foot-col">
-          <h4>Shop</h4>
-          <a href="shop.html">All products</a>
+          <h4>Collection</h4>
+          <a href="shop.html">Collection</a>
           <a href="#notify">Get notified</a>
         </div>
         <div class="foot-col">
@@ -1264,12 +1226,6 @@ var FRAMES = {
   var state = {};
   var names = [].map.call(svg.querySelectorAll('.frame'), function(g){ return g.getAttribute('data-frame'); });
 
-  // stagger the frames in when the intro ends
-  names.forEach(function(n, i){
-    var g = svg.querySelector('#f-' + n);
-    g.style.transitionDelay = (0.5 + i * 0.07).toFixed(2) + 's';
-  });
-
   function apply(name){
     var st = state[name]; if(!st || !st.src) return;
     var g = svg.querySelector('#f-' + name), img = g.querySelector('.photo'), path = g.querySelector('.fillshape');
@@ -1366,57 +1322,5 @@ var FRAMES = {
 })();
 </script>
 
-<script>
-(function(){
-  var root = document.documentElement;
-  var intro = document.getElementById('intro');
-  if(!intro){ root.classList.remove('intro-lock'); return; }
-  var video = document.getElementById('introVideo');
-  var photo = document.getElementById('introPhoto');
-  var mark  = document.getElementById('introMark');
-  var done = false, fellBack = false, startTimer = null;
-
-  function finish(){
-    if(done) return; done = true;
-    clearTimeout(startTimer);
-    try{ video.pause(); }catch(e){}
-    intro.classList.add('out');
-    root.classList.remove('intro-lock');
-    setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); }, 3200);
-  }
-  // No video file (or it cannot play): use the hero photo as a short slow-zoom intro.
-  function fallback(){
-    if(done || fellBack) return; fellBack = true;
-    clearTimeout(startTimer);
-    try{ video.pause(); }catch(e){}
-    video.style.display = 'none';
-    photo.src = 'images/hero.jpg';
-    photo.classList.add('on');
-    mark.classList.add('on');
-    setTimeout(finish, 4200);
-  }
-
-  intro.addEventListener('click', finish);
-  intro.addEventListener('touchend', function(e){ e.preventDefault(); finish(); }, {passive:false});
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') finish(); });
-
-  video.addEventListener('ended', finish);
-  // Phones (portrait / narrow screens) get intro-m.mp4; laptops get intro.mp4.
-  // If the phone file is missing, the laptop video plays instead.
-  var isPhone = window.matchMedia && matchMedia('(max-width: 760px), (orientation: portrait)').matches;
-  var triedDesktop = !isPhone;
-  video.addEventListener('error', function(){
-    if(!triedDesktop){ triedDesktop = true; video.src = 'intro.mp4'; video.load(); var q = video.play(); if(q && q.catch) q.catch(fallback); return; }
-    fallback();
-  });
-  video.src = isPhone ? 'intro-m.mp4' : 'intro.mp4';
-  video.addEventListener('playing', function(){ clearTimeout(startTimer); });
-  startTimer = setTimeout(fallback, 5000);
-  try{
-    var pr = video.play();
-    if(pr && pr.catch) pr.catch(fallback);
-  }catch(e){ fallback(); }
-})();
-</script>
 </body>
 </html>
