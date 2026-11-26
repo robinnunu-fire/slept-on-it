@@ -228,7 +228,8 @@
     cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease;
   }
   .cat-row-main .cat-pill{ font-weight:600; color:#000; }
-  .cat-pill:hover{ border-color:#000; }
+  .cat-pill{ display:inline-block; }
+  .cat-pill:hover{ border-color:#000; background:var(--lime); }
   .cat-row-main .cat-pill.active{ background:var(--charcoal); border-color:#000; color:var(--ivory); }
   .cat-pill.sub{ font-size:11px; padding:7px 15px; font-weight:400; }
   .cat-pill.sub.active{ background:var(--lime-deep); border-color:#000; color:#000; }
@@ -597,72 +598,72 @@
 
     <div class="cat-filters reveal">
       <div class="cat-row cat-row-main">
-        <button class="cat-pill active" data-cat="all">All</button>
-        <button class="cat-pill" data-cat="artwork">Artwork</button>
-        <button class="cat-pill" data-cat="craft">Craft</button>
+        <a class="cat-pill" href="shop.html">All</a>
+        <a class="cat-pill" href="shop.html#artwork">Artwork</a>
+        <a class="cat-pill" href="shop.html#craft">Craft</a>
       </div>
       <div class="cat-row cat-row-sub" id="catSubRow">
-        <button class="cat-pill sub" data-cat="artwork" data-sub="painting">Painting</button>
-        <button class="cat-pill sub" data-cat="artwork" data-sub="sculpture">Sculpture</button>
-        <button class="cat-pill sub" data-cat="artwork" data-sub="print">Print</button>
-        <button class="cat-pill sub" data-cat="craft" data-sub="objects">Objects</button>
-        <button class="cat-pill sub" data-cat="craft" data-sub="clothing">Clothing</button>
-        <button class="cat-pill sub" data-cat="craft" data-sub="furniture">Furniture</button>
-        <button class="cat-pill sub" data-cat="craft" data-sub="stationery">Stationery</button>
+        <a class="cat-pill sub" href="shop.html#painting">Painting</a>
+        <a class="cat-pill sub" href="shop.html#sculpture">Sculpture</a>
+        <a class="cat-pill sub" href="shop.html#print">Print</a>
+        <a class="cat-pill sub" href="shop.html#objects">Objects</a>
+        <a class="cat-pill sub" href="shop.html#clothing">Clothing</a>
+        <a class="cat-pill sub" href="shop.html#furniture">Furniture</a>
+        <a class="cat-pill sub" href="shop.html#stationery">Stationery</a>
       </div>
     </div>
   </div>
 
   <div class="shelf reveal" id="shelf">
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div><span class="shelf-artist">Ah-young Shin</span><span class="shelf-title">Wave Under the Blanket</span><div class="shelf-meta"><span class="shelf-price">$480</span><span class="shelf-edition">1/1 · oil</span></div></div>
+    <a class="shelf-item" href="product.html?id=1" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div><span class="shelf-artist">Ah-young Shin</span><span class="shelf-title">Wave Under the Blanket</span><div class="shelf-meta"><span class="shelf-price">$480</span><span class="shelf-edition">1/1 · oil</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">K. Bahn</span><span class="shelf-title">Untitled (Window)</span><div class="shelf-meta"><span class="shelf-price">$135</span><span class="shelf-edition">Ed. 5/20</span></div></div>
+    <a class="shelf-item" href="product.html?id=2" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">K. Bahn</span><span class="shelf-title">Untitled (Window)</span><div class="shelf-meta"><span class="shelf-price">$135</span><span class="shelf-edition">Ed. 5/20</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="sculpture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div><span class="shelf-artist">Studio Noa</span><span class="shelf-title">Afterimage</span><div class="shelf-meta"><span class="shelf-price">$560</span><span class="shelf-edition">1/1 ceramic</span></div></div>
+    <a class="shelf-item" href="product.html?id=3" data-cat="artwork" data-sub="sculpture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div><span class="shelf-artist">Studio Noa</span><span class="shelf-title">Afterimage</span><div class="shelf-meta"><span class="shelf-price">$560</span><span class="shelf-edition">1/1 ceramic</span></div></a>
 
-    <div class="shelf-item" data-cat="craft" data-sub="objects"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div><span class="shelf-artist">Studio Geum</span><span class="shelf-title">Night Light</span><div class="shelf-meta"><span class="shelf-price">$95</span><span class="shelf-edition">Ed. 8/40</span></div></div>
+    <a class="shelf-item" href="product.html?id=4" data-cat="craft" data-sub="objects"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div><span class="shelf-artist">Studio Geum</span><span class="shelf-title">Night Light</span><div class="shelf-meta"><span class="shelf-price">$95</span><span class="shelf-edition">Ed. 8/40</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Ha-neul Jung</span><span class="shelf-title">Quiet Green</span><div class="shelf-meta"><span class="shelf-price">$310</span><span class="shelf-edition">1/1 · acrylic</span></div></div>
+    <a class="shelf-item" href="product.html?id=5" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Ha-neul Jung</span><span class="shelf-title">Quiet Green</span><div class="shelf-meta"><span class="shelf-price">$310</span><span class="shelf-edition">1/1 · acrylic</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Pillow Crease</span><div class="shelf-meta"><span class="shelf-price">$120</span><span class="shelf-edition">Ed. 2/8</span></div></div>
+    <a class="shelf-item" href="product.html?id=6" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Pillow Crease</span><div class="shelf-meta"><span class="shelf-price">$120</span><span class="shelf-edition">Ed. 2/8</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div><span class="shelf-artist">Atelier Mu</span><span class="shelf-title">Static Hour</span><div class="shelf-meta"><span class="shelf-price">$220</span><span class="shelf-edition">1/1 · gouache</span></div></div>
+    <a class="shelf-item" href="product.html?id=7" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div><span class="shelf-artist">Atelier Mu</span><span class="shelf-title">Static Hour</span><div class="shelf-meta"><span class="shelf-price">$220</span><span class="shelf-edition">1/1 · gouache</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Low Light Study</span><div class="shelf-meta"><span class="shelf-price">$175</span><span class="shelf-edition">Ed. 4/15</span></div></div>
+    <a class="shelf-item" href="product.html?id=8" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Low Light Study</span><div class="shelf-meta"><span class="shelf-price">$175</span><span class="shelf-edition">Ed. 4/15</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div><span class="shelf-artist">Ah-young Shin</span><span class="shelf-title">Radiator Hum</span><div class="shelf-meta"><span class="shelf-price">$260</span><span class="shelf-edition">1/1 · oil</span></div></div>
+    <a class="shelf-item" href="product.html?id=9" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div><span class="shelf-artist">Ah-young Shin</span><span class="shelf-title">Radiator Hum</span><div class="shelf-meta"><span class="shelf-price">$260</span><span class="shelf-edition">1/1 · oil</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div><span class="shelf-artist">K. Bahn</span><span class="shelf-title">Insomnia Draft No. 2</span><div class="shelf-meta"><span class="shelf-price">$140</span><span class="shelf-edition">Ed. 6/20</span></div></div>
+    <a class="shelf-item" href="product.html?id=10" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div><span class="shelf-artist">K. Bahn</span><span class="shelf-title">Insomnia Draft No. 2</span><div class="shelf-meta"><span class="shelf-price">$140</span><span class="shelf-edition">Ed. 6/20</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="sculpture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Studio Noa</span><span class="shelf-title">Held Breath</span><div class="shelf-meta"><span class="shelf-price">$390</span><span class="shelf-edition">1/1 ceramic</span></div></div>
+    <a class="shelf-item" href="product.html?id=11" data-cat="artwork" data-sub="sculpture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Studio Noa</span><span class="shelf-title">Held Breath</span><div class="shelf-meta"><span class="shelf-price">$390</span><span class="shelf-edition">1/1 ceramic</span></div></a>
 
-    <div class="shelf-item" data-cat="craft" data-sub="objects"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">Studio Geum</span><span class="shelf-title">Bedside Lamp</span><div class="shelf-meta"><span class="shelf-price">$105</span><span class="shelf-edition">Ed. 10/40</span></div></div>
+    <a class="shelf-item" href="product.html?id=12" data-cat="craft" data-sub="objects"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">Studio Geum</span><span class="shelf-title">Bedside Lamp</span><div class="shelf-meta"><span class="shelf-price">$105</span><span class="shelf-edition">Ed. 10/40</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div><span class="shelf-artist">Ha-neul Jung</span><span class="shelf-title">Faded Curtain</span><div class="shelf-meta"><span class="shelf-price">$340</span><span class="shelf-edition">1/1 · acrylic</span></div></div>
+    <a class="shelf-item" href="product.html?id=13" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div><span class="shelf-artist">Ha-neul Jung</span><span class="shelf-title">Faded Curtain</span><div class="shelf-meta"><span class="shelf-price">$340</span><span class="shelf-edition">1/1 · acrylic</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Static on the Ceiling</span><div class="shelf-meta"><span class="shelf-price">$150</span><span class="shelf-edition">Ed. 3/8</span></div></div>
+    <a class="shelf-item" href="product.html?id=14" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Static on the Ceiling</span><div class="shelf-meta"><span class="shelf-price">$150</span><span class="shelf-edition">Ed. 3/8</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div><span class="shelf-artist">Atelier Mu</span><span class="shelf-title">Thin Walls</span><div class="shelf-meta"><span class="shelf-price">$230</span><span class="shelf-edition">1/1 · ink</span></div></div>
+    <a class="shelf-item" href="product.html?id=15" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div><span class="shelf-artist">Atelier Mu</span><span class="shelf-title">Thin Walls</span><div class="shelf-meta"><span class="shelf-price">$230</span><span class="shelf-edition">1/1 · ink</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Kitchen Light at 3am</span><div class="shelf-meta"><span class="shelf-price">$190</span><span class="shelf-edition">Ed. 5/15</span></div></div>
+    <a class="shelf-item" href="product.html?id=16" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Kitchen Light at 3am</span><div class="shelf-meta"><span class="shelf-price">$190</span><span class="shelf-edition">Ed. 5/15</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Atelier Mu</span><span class="shelf-title">Folded Note</span><div class="shelf-meta"><span class="shelf-price">$205</span><span class="shelf-edition">1/1 · ink</span></div></div>
+    <a class="shelf-item" href="product.html?id=17" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Atelier Mu</span><span class="shelf-title">Folded Note</span><div class="shelf-meta"><span class="shelf-price">$205</span><span class="shelf-edition">1/1 · ink</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">Ah-young Shin</span><span class="shelf-title">Static Blue</span><div class="shelf-meta"><span class="shelf-price">$295</span><span class="shelf-edition">1/1 · oil</span></div></div>
+    <a class="shelf-item" href="product.html?id=18" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">Ah-young Shin</span><span class="shelf-title">Static Blue</span><div class="shelf-meta"><span class="shelf-price">$295</span><span class="shelf-edition">1/1 · oil</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div><span class="shelf-artist">K. Bahn</span><span class="shelf-title">Untitled (Ceiling)</span><div class="shelf-meta"><span class="shelf-price">$150</span><span class="shelf-edition">Ed. 7/20</span></div></div>
+    <a class="shelf-item" href="product.html?id=19" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div><span class="shelf-artist">K. Bahn</span><span class="shelf-title">Untitled (Ceiling)</span><div class="shelf-meta"><span class="shelf-price">$150</span><span class="shelf-edition">Ed. 7/20</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="sculpture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div><span class="shelf-artist">Studio Noa</span><span class="shelf-title">Warm Object</span><div class="shelf-meta"><span class="shelf-price">$430</span><span class="shelf-edition">1/1 ceramic</span></div></div>
+    <a class="shelf-item" href="product.html?id=20" data-cat="artwork" data-sub="sculpture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div><span class="shelf-artist">Studio Noa</span><span class="shelf-title">Warm Object</span><div class="shelf-meta"><span class="shelf-price">$430</span><span class="shelf-edition">1/1 ceramic</span></div></a>
 
-    <div class="shelf-item" data-cat="craft" data-sub="furniture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div><span class="shelf-artist">Studio Geum</span><span class="shelf-title">Nightstand</span><div class="shelf-meta"><span class="shelf-price">$115</span><span class="shelf-edition">Ed. 12/40</span></div></div>
+    <a class="shelf-item" href="product.html?id=21" data-cat="craft" data-sub="furniture"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div><span class="shelf-artist">Studio Geum</span><span class="shelf-title">Nightstand</span><div class="shelf-meta"><span class="shelf-price">$115</span><span class="shelf-edition">Ed. 12/40</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Ha-neul Jung</span><span class="shelf-title">Half-Drawn Curtain</span><div class="shelf-meta"><span class="shelf-price">$355</span><span class="shelf-edition">1/1 · acrylic</span></div></div>
+    <a class="shelf-item" href="product.html?id=22" data-cat="artwork" data-sub="painting"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div><span class="shelf-artist">Ha-neul Jung</span><span class="shelf-title">Half-Drawn Curtain</span><div class="shelf-meta"><span class="shelf-price">$355</span><span class="shelf-edition">1/1 · acrylic</span></div></a>
 
-    <div class="shelf-item" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Under the Doona</span><div class="shelf-meta"><span class="shelf-price">$135</span><span class="shelf-edition">Ed. 4/8</span></div></div>
+    <a class="shelf-item" href="product.html?id=23" data-cat="artwork" data-sub="print"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Under the Doona</span><div class="shelf-meta"><span class="shelf-price">$135</span><span class="shelf-edition">Ed. 4/8</span></div></a>
 
-    <div class="shelf-item" data-cat="craft" data-sub="clothing"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Hand-dyed Sleep Shirt</span><div class="shelf-meta"><span class="shelf-price">$85</span><span class="shelf-edition">Ed. 6/25</span></div></div>
+    <a class="shelf-item" href="product.html?id=24" data-cat="craft" data-sub="clothing"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div><span class="shelf-artist">sso</span><span class="shelf-title">Hand-dyed Sleep Shirt</span><div class="shelf-meta"><span class="shelf-price">$85</span><span class="shelf-edition">Ed. 6/25</span></div></a>
 
-    <div class="shelf-item" data-cat="craft" data-sub="stationery"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Insomnia Notebook</span><div class="shelf-meta"><span class="shelf-price">$28</span><span class="shelf-edition">Ed. 14/50</span></div></div>
+    <a class="shelf-item" href="product.html?id=25" data-cat="craft" data-sub="stationery"><div class="shelf-swatch"><svg viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div><span class="shelf-artist">Yoon-seul Baek</span><span class="shelf-title">Insomnia Notebook</span><div class="shelf-meta"><span class="shelf-price">$28</span><span class="shelf-edition">Ed. 14/50</span></div></a>
   </div>
   <p class="shelf-hint">drag to browse → &nbsp;·&nbsp; <a href="shop.html" style="text-decoration:underline">view the whole collection</a></p>
 </section>
@@ -1123,45 +1124,6 @@
     e.preventDefault();
     applySuccess.classList.add('show');
     applyForm.reset();
-  });
-
-  // collection category filters
-  const shelfEl = document.getElementById('shelf');
-  const shelfItems = document.querySelectorAll('.shelf-item');
-  const mainPills = document.querySelectorAll('.cat-row-main .cat-pill');
-  const subPills = document.querySelectorAll('.cat-row-sub .cat-pill');
-
-  function applyShelfFilter(cat, sub) {
-    shelfItems.forEach(item => {
-      const matchCat = cat === 'all' || item.dataset.cat === cat;
-      const matchSub = !sub || item.dataset.sub === sub;
-      item.style.display = (matchCat && matchSub) ? '' : 'none';
-    });
-    shelfEl.scrollLeft = 0;
-  }
-
-  function updateSubVisibility(cat) {
-    subPills.forEach(p => { p.hidden = cat !== 'all' && p.dataset.cat !== cat; });
-  }
-
-  mainPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      mainPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      subPills.forEach(p => p.classList.remove('active'));
-      updateSubVisibility(pill.dataset.cat);
-      applyShelfFilter(pill.dataset.cat, null);
-    });
-  });
-
-  subPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      subPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      mainPills.forEach(p => p.classList.toggle('active', p.dataset.cat === pill.dataset.cat));
-      updateSubVisibility(pill.dataset.cat);
-      applyShelfFilter(pill.dataset.cat, pill.dataset.sub);
-    });
   });
 
   // exhibition archive carousel

@@ -131,7 +131,9 @@
   .card.wide{ grid-column:span 2; }
   .card-img{ position:relative; width:100%; aspect-ratio:19/25; overflow:hidden; background:var(--paper); }
   .card.wide .card-img{ aspect-ratio:auto; height:calc((100cqw - (var(--cols) - 1) * var(--gap)) / var(--cols) * 25 / 19); }
+  .img-link{ position:absolute; inset:0; display:block; }
   .card-img .img-a, .card-img .img-b{ position:absolute; inset:0; }
+  .card-title a:hover{ text-decoration:underline; text-underline-offset:4px; }
   .card-img svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
   .card-img .img-b{ opacity:0; transition:opacity .45s ease; }
   .card-img .img-b svg{ transform:scale(1.7) rotate(-4deg); transform-origin:var(--ox,30%) var(--oy,70%); }
@@ -282,300 +284,350 @@
     <section class="grid" id="grid" aria-label="Products">
     <article class="card" data-id="1" data-cat="artwork" data-sub="painting" data-price="480" data-title="Wave Under the Blanket" data-artist="Ah-young Shin" data-order="0">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        <a class="img-link" href="product.html?id=1" aria-label="View Wave Under the Blanket">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="1" aria-label="Add Wave Under the Blanket to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Wave Under the Blanket</h3>
+        <h3 class="card-title"><a href="product.html?id=1">Wave Under the Blanket</a></h3>
         <span class="card-price">$480.00 AUD</span>
         <span class="card-meta">Ah-young Shin · 1/1 · oil</span>
       </div>
     </article>
     <article class="card" data-id="2" data-cat="artwork" data-sub="print" data-price="135" data-title="Untitled (Window)" data-artist="K. Bahn" data-order="1">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <a class="img-link" href="product.html?id=2" aria-label="View Untitled (Window)">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="2" aria-label="Add Untitled (Window) to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Untitled (Window)</h3>
+        <h3 class="card-title"><a href="product.html?id=2">Untitled (Window)</a></h3>
         <span class="card-price">$135.00 AUD</span>
         <span class="card-meta">K. Bahn · Ed. 5/20</span>
       </div>
     </article>
     <article class="card wide" data-id="3" data-cat="artwork" data-sub="sculpture" data-price="560" data-title="Afterimage" data-artist="Studio Noa" data-order="2">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <a class="img-link" href="product.html?id=3" aria-label="View Afterimage">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="3" aria-label="Add Afterimage to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Afterimage</h3>
+        <h3 class="card-title"><a href="product.html?id=3">Afterimage</a></h3>
         <span class="card-price">$560.00 AUD</span>
         <span class="card-meta">Studio Noa · 1/1 ceramic</span>
       </div>
     </article>
     <article class="card" data-id="4" data-cat="craft" data-sub="objects" data-price="95" data-title="Night Light" data-artist="Studio Geum" data-order="3">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div>
+        <a class="img-link" href="product.html?id=4" aria-label="View Night Light">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="4" aria-label="Add Night Light to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Night Light</h3>
+        <h3 class="card-title"><a href="product.html?id=4">Night Light</a></h3>
         <span class="card-price">$95.00 AUD</span>
         <span class="card-meta">Studio Geum · Ed. 8/40</span>
       </div>
     </article>
     <article class="card" data-id="5" data-cat="artwork" data-sub="painting" data-price="310" data-title="Quiet Green" data-artist="Ha-neul Jung" data-order="4">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <a class="img-link" href="product.html?id=5" aria-label="View Quiet Green">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="5" aria-label="Add Quiet Green to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Quiet Green</h3>
+        <h3 class="card-title"><a href="product.html?id=5">Quiet Green</a></h3>
         <span class="card-price">$310.00 AUD</span>
         <span class="card-meta">Ha-neul Jung · 1/1 · acrylic</span>
       </div>
     </article>
     <article class="card" data-id="6" data-cat="artwork" data-sub="print" data-price="120" data-title="Pillow Crease" data-artist="sso" data-order="5">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <a class="img-link" href="product.html?id=6" aria-label="View Pillow Crease">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="6" aria-label="Add Pillow Crease to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Pillow Crease</h3>
+        <h3 class="card-title"><a href="product.html?id=6">Pillow Crease</a></h3>
         <span class="card-price">$120.00 AUD</span>
         <span class="card-meta">sso · Ed. 2/8</span>
       </div>
     </article>
     <article class="card" data-id="7" data-cat="artwork" data-sub="painting" data-price="220" data-title="Static Hour" data-artist="Atelier Mu" data-order="6">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div>
+        <a class="img-link" href="product.html?id=7" aria-label="View Static Hour">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="7" aria-label="Add Static Hour to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Static Hour</h3>
+        <h3 class="card-title"><a href="product.html?id=7">Static Hour</a></h3>
         <span class="card-price">$220.00 AUD</span>
         <span class="card-meta">Atelier Mu · 1/1 · gouache</span>
       </div>
     </article>
     <article class="card wide" data-id="8" data-cat="artwork" data-sub="print" data-price="175" data-title="Low Light Study" data-artist="Yoon-seul Baek" data-order="7">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <a class="img-link" href="product.html?id=8" aria-label="View Low Light Study">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="8" aria-label="Add Low Light Study to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Low Light Study</h3>
+        <h3 class="card-title"><a href="product.html?id=8">Low Light Study</a></h3>
         <span class="card-price">$175.00 AUD</span>
         <span class="card-meta">Yoon-seul Baek · Ed. 4/15</span>
       </div>
     </article>
     <article class="card" data-id="9" data-cat="artwork" data-sub="painting" data-price="260" data-title="Radiator Hum" data-artist="Ah-young Shin" data-order="8">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <a class="img-link" href="product.html?id=9" aria-label="View Radiator Hum">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="9" aria-label="Add Radiator Hum to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Radiator Hum</h3>
+        <h3 class="card-title"><a href="product.html?id=9">Radiator Hum</a></h3>
         <span class="card-price">$260.00 AUD</span>
         <span class="card-meta">Ah-young Shin · 1/1 · oil</span>
       </div>
     </article>
     <article class="card" data-id="10" data-cat="artwork" data-sub="print" data-price="140" data-title="Insomnia Draft No. 2" data-artist="K. Bahn" data-order="9">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        <a class="img-link" href="product.html?id=10" aria-label="View Insomnia Draft No. 2">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="10" aria-label="Add Insomnia Draft No. 2 to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Insomnia Draft No. 2</h3>
+        <h3 class="card-title"><a href="product.html?id=10">Insomnia Draft No. 2</a></h3>
         <span class="card-price">$140.00 AUD</span>
         <span class="card-meta">K. Bahn · Ed. 6/20</span>
       </div>
     </article>
     <article class="card" data-id="11" data-cat="artwork" data-sub="sculpture" data-price="390" data-title="Held Breath" data-artist="Studio Noa" data-order="10">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <a class="img-link" href="product.html?id=11" aria-label="View Held Breath">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="11" aria-label="Add Held Breath to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Held Breath</h3>
+        <h3 class="card-title"><a href="product.html?id=11">Held Breath</a></h3>
         <span class="card-price">$390.00 AUD</span>
         <span class="card-meta">Studio Noa · 1/1 ceramic</span>
       </div>
     </article>
     <article class="card" data-id="12" data-cat="craft" data-sub="objects" data-price="105" data-title="Bedside Lamp" data-artist="Studio Geum" data-order="11">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <a class="img-link" href="product.html?id=12" aria-label="View Bedside Lamp">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="12" aria-label="Add Bedside Lamp to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Bedside Lamp</h3>
+        <h3 class="card-title"><a href="product.html?id=12">Bedside Lamp</a></h3>
         <span class="card-price">$105.00 AUD</span>
         <span class="card-meta">Studio Geum · Ed. 10/40</span>
       </div>
     </article>
     <article class="card wide" data-id="13" data-cat="artwork" data-sub="painting" data-price="340" data-title="Faded Curtain" data-artist="Ha-neul Jung" data-order="12">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        <a class="img-link" href="product.html?id=13" aria-label="View Faded Curtain">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="13" aria-label="Add Faded Curtain to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Faded Curtain</h3>
+        <h3 class="card-title"><a href="product.html?id=13">Faded Curtain</a></h3>
         <span class="card-price">$340.00 AUD</span>
         <span class="card-meta">Ha-neul Jung · 1/1 · acrylic</span>
       </div>
     </article>
     <article class="card" data-id="14" data-cat="artwork" data-sub="print" data-price="150" data-title="Static on the Ceiling" data-artist="sso" data-order="13">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <a class="img-link" href="product.html?id=14" aria-label="View Static on the Ceiling">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="14" aria-label="Add Static on the Ceiling to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Static on the Ceiling</h3>
+        <h3 class="card-title"><a href="product.html?id=14">Static on the Ceiling</a></h3>
         <span class="card-price">$150.00 AUD</span>
         <span class="card-meta">sso · Ed. 3/8</span>
       </div>
     </article>
     <article class="card" data-id="15" data-cat="artwork" data-sub="painting" data-price="230" data-title="Thin Walls" data-artist="Atelier Mu" data-order="14">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <a class="img-link" href="product.html?id=15" aria-label="View Thin Walls">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="15" aria-label="Add Thin Walls to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Thin Walls</h3>
+        <h3 class="card-title"><a href="product.html?id=15">Thin Walls</a></h3>
         <span class="card-price">$230.00 AUD</span>
         <span class="card-meta">Atelier Mu · 1/1 · ink</span>
       </div>
     </article>
     <article class="card" data-id="16" data-cat="artwork" data-sub="print" data-price="190" data-title="Kitchen Light at 3am" data-artist="Yoon-seul Baek" data-order="15">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div>
+        <a class="img-link" href="product.html?id=16" aria-label="View Kitchen Light at 3am">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="16" aria-label="Add Kitchen Light at 3am to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Kitchen Light at 3am</h3>
+        <h3 class="card-title"><a href="product.html?id=16">Kitchen Light at 3am</a></h3>
         <span class="card-price">$190.00 AUD</span>
         <span class="card-meta">Yoon-seul Baek · Ed. 5/15</span>
       </div>
     </article>
     <article class="card" data-id="17" data-cat="artwork" data-sub="painting" data-price="205" data-title="Folded Note" data-artist="Atelier Mu" data-order="16">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <a class="img-link" href="product.html?id=17" aria-label="View Folded Note">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="17" aria-label="Add Folded Note to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Folded Note</h3>
+        <h3 class="card-title"><a href="product.html?id=17">Folded Note</a></h3>
         <span class="card-price">$205.00 AUD</span>
         <span class="card-meta">Atelier Mu · 1/1 · ink</span>
       </div>
     </article>
     <article class="card wide" data-id="18" data-cat="artwork" data-sub="painting" data-price="295" data-title="Static Blue" data-artist="Ah-young Shin" data-order="17">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <a class="img-link" href="product.html?id=18" aria-label="View Static Blue">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="18" aria-label="Add Static Blue to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Static Blue</h3>
+        <h3 class="card-title"><a href="product.html?id=18">Static Blue</a></h3>
         <span class="card-price">$295.00 AUD</span>
         <span class="card-meta">Ah-young Shin · 1/1 · oil</span>
       </div>
     </article>
     <article class="card" data-id="19" data-cat="artwork" data-sub="print" data-price="150" data-title="Untitled (Ceiling)" data-artist="K. Bahn" data-order="18">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <a class="img-link" href="product.html?id=19" aria-label="View Untitled (Ceiling)">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="19" aria-label="Add Untitled (Ceiling) to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Untitled (Ceiling)</h3>
+        <h3 class="card-title"><a href="product.html?id=19">Untitled (Ceiling)</a></h3>
         <span class="card-price">$150.00 AUD</span>
         <span class="card-meta">K. Bahn · Ed. 7/20</span>
       </div>
     </article>
     <article class="card" data-id="20" data-cat="artwork" data-sub="sculpture" data-price="430" data-title="Warm Object" data-artist="Studio Noa" data-order="19">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <a class="img-link" href="product.html?id=20" aria-label="View Warm Object">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="20" aria-label="Add Warm Object to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Warm Object</h3>
+        <h3 class="card-title"><a href="product.html?id=20">Warm Object</a></h3>
         <span class="card-price">$430.00 AUD</span>
         <span class="card-meta">Studio Noa · 1/1 ceramic</span>
       </div>
     </article>
     <article class="card" data-id="21" data-cat="craft" data-sub="furniture" data-price="115" data-title="Nightstand" data-artist="Studio Geum" data-order="20">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        <a class="img-link" href="product.html?id=21" aria-label="View Nightstand">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="21" aria-label="Add Nightstand to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Nightstand</h3>
+        <h3 class="card-title"><a href="product.html?id=21">Nightstand</a></h3>
         <span class="card-price">$115.00 AUD</span>
         <span class="card-meta">Studio Geum · Ed. 12/40</span>
       </div>
     </article>
     <article class="card" data-id="22" data-cat="artwork" data-sub="painting" data-price="355" data-title="Half-Drawn Curtain" data-artist="Ha-neul Jung" data-order="21">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <a class="img-link" href="product.html?id=22" aria-label="View Half-Drawn Curtain">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="22" aria-label="Add Half-Drawn Curtain to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Half-Drawn Curtain</h3>
+        <h3 class="card-title"><a href="product.html?id=22">Half-Drawn Curtain</a></h3>
         <span class="card-price">$355.00 AUD</span>
         <span class="card-meta">Ha-neul Jung · 1/1 · acrylic</span>
       </div>
     </article>
     <article class="card wide" data-id="23" data-cat="artwork" data-sub="print" data-price="135" data-title="Under the Doona" data-artist="sso" data-order="22">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <a class="img-link" href="product.html?id=23" aria-label="View Under the Doona">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="23" aria-label="Add Under the Doona to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Under the Doona</h3>
+        <h3 class="card-title"><a href="product.html?id=23">Under the Doona</a></h3>
         <span class="card-price">$135.00 AUD</span>
         <span class="card-meta">sso · Ed. 4/8</span>
       </div>
     </article>
     <article class="card" data-id="24" data-cat="craft" data-sub="clothing" data-price="85" data-title="Hand-dyed Sleep Shirt" data-artist="sso" data-order="23">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <a class="img-link" href="product.html?id=24" aria-label="View Hand-dyed Sleep Shirt">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="24" aria-label="Add Hand-dyed Sleep Shirt to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Hand-dyed Sleep Shirt</h3>
+        <h3 class="card-title"><a href="product.html?id=24">Hand-dyed Sleep Shirt</a></h3>
         <span class="card-price">$85.00 AUD</span>
         <span class="card-meta">sso · Ed. 6/25</span>
       </div>
     </article>
     <article class="card" data-id="25" data-cat="craft" data-sub="stationery" data-price="28" data-title="Insomnia Notebook" data-artist="Yoon-seul Baek" data-order="24">
       <div class="card-img">
-        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div>
-        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div>
+        <a class="img-link" href="product.html?id=25" aria-label="View Insomnia Notebook">
+          <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div>
+          <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div>
+        </a>
         <button class="add" type="button" data-id="25" aria-label="Add Insomnia Notebook to bag"><span>Add to bag</span></button>
       </div>
       <div class="card-info">
-        <h3 class="card-title">Insomnia Notebook</h3>
+        <h3 class="card-title"><a href="product.html?id=25">Insomnia Notebook</a></h3>
         <span class="card-price">$28.00 AUD</span>
         <span class="card-meta">Yoon-seul Baek · Ed. 14/50</span>
       </div>
