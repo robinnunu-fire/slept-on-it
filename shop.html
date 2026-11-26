@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#e7e5de">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Slept On It</title>
+<meta name="description" content="The whole shelf — original paintings, prints, sculpture and objects by young Australian artists. Always open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Urbanist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory: #e7e5de;
+    --panel: #dcdacf;
+    --panel-2: #e9f0cf;
+    --paper: #f6f5f0;
+    --charcoal: #46423a;
+    --charcoal-dim: #8d8874;
+    --lime: #d8fa8e;
+    --lime-deep: #9fdb4e;
+    --line: rgba(70,66,58,0.14);
+    --line-strong: rgba(70,66,58,0.26);
+    --hero-deep: #221f19;
+
+    --f-script: 'Mea Culpa', cursive;
+    --f-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --f-body: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --wrap: 1240px;
+    --edge: clamp(20px, 5vw, 64px);
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; background:var(--ivory); min-height:100%; overflow-x:hidden; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    min-height:100%;
+    background:var(--ivory);
+    color:#000;
+    font-family:var(--f-body);
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  img{ max-width:100%; display:block; }
+  button{ font-family:inherit; cursor:pointer; }
+
+  ::selection{ background:var(--lime-deep); color:var(--charcoal); }
+
+  :focus-visible{
+    outline: 2px solid var(--lime-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap{ max-width:var(--wrap); margin:0 auto; padding-inline:var(--edge); }
+  .eyebrow{
+    font-family:var(--f-mono); font-size:12px; letter-spacing:.14em; font-weight:500;
+    text-transform:uppercase; color:#000; display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--lime-deep); }
+
+
+  /* ---------------- NAV ---------------- */
+  .nav{
+    --nav-fg:#000; --nav-border: rgba(70,66,58,0.28); --nav-sub: #000;
+    position:fixed; top:0; left:0; right:0; z-index:1000; color:#000;
+    background:var(--ivory);
+    transform:translateZ(0); -webkit-backface-visibility:hidden; backface-visibility:hidden;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px var(--edge);
+    transition:background .4s ease, border-color .4s ease, padding .3s ease, color .4s ease;
+    border-bottom:.75px solid #000;
+  }
+  .nav.is-scrolled{
+    --nav-fg:#000; --nav-border: rgba(70,66,58,0.18); --nav-sub: #000;
+    background:var(--ivory);
+    border-bottom:.75px solid #000;
+    padding-block:12px;
+  }
+  .nav-mark{ display:flex; align-items:center; gap:9px; color:#000; }
+  .nav-mark .pulse{
+    width:8px; height:8px; border-radius:50%; background:var(--lime-deep);
+    box-shadow:0 0 0 0 rgba(159,219,78,.6);
+    animation:pulse 2.4s ease-in-out infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(159,219,78,.5); }
+    70%{ box-shadow:0 0 0 8px rgba(159,219,78,0); }
+    100%{ box-shadow:0 0 0 0 rgba(159,219,78,0); }
+  }
+  .nav-mark-text{ font-family:var(--f-script); font-weight:400; font-size:30px; letter-spacing:.01em; line-height:1; }
+  .nav-mark-sub{ font-family:var(--f-body); font-weight:400; font-size:11px; letter-spacing:.14em; color:#000; text-transform:none; display:block; margin-top:-2px; }
+
+  .nav-links{ display:flex; align-items:center; gap:32px; }
+  .nav-links a{ font-size:13.5px; font-weight:500; color:#000; opacity:.75; transition:opacity .2s; position:relative; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:0; bottom:-5px; height:1px; background:var(--lime-deep);
+    transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+  }
+  .nav-links a:hover::after{ transform:scaleX(1); }
+
+  .nav-status{
+    font-family:var(--f-mono); font-size:11.5px; color:#000; opacity:.85;
+    display:flex; align-items:center; gap:8px;
+    border:.75px solid #000; padding:7px 12px; border-radius:99px;
+  }
+  .nav-status b{ color:#6f9d2c; font-weight:500; }
+
+  .nav-burger{ display:none; width:34px; height:34px; border:.75px solid #000; border-radius:8px; background:transparent; position:relative; }
+  .nav-burger span, .nav-burger span::before, .nav-burger span::after{
+    content:''; position:absolute; left:8px; right:8px; height:1px; background:var(--nav-fg); transition:.25s;
+  }
+  .nav-burger span{ top:16px; }
+  .nav-burger span::before{ top:-6px; }
+  .nav-burger span::after{ top:6px; }
+
+  .mobile-panel{
+    position:fixed; inset:0; z-index:99; background:var(--ivory); color:#000;
+    display:flex; flex-direction:column; justify-content:center; gap:22px; padding:var(--edge);
+    transform:translateY(-100%); transition:transform .4s ease; overflow-y:auto;
+  }
+  .mobile-panel.open{ transform:translateY(0); }
+  .mobile-panel a{ font-family:var(--f-heading); font-weight:500; font-size:32px; color:#000; }
+  .mobile-panel .m-status{ font-family:var(--f-mono); font-size:12px; color:#000; margin-top:16px; }
+  .mobile-panel .m-status b{ color:var(--lime-deep); }
+
+
+  /* ---------------- SHOP ---------------- */
+  .shop-edge{ --shop-edge: clamp(12px, 1.6vw, 24px); }
+  .nav{ padding-inline:var(--shop-edge); }
+  .nav-links a.on{ opacity:1; }
+  .nav-links a.on::after{ transform:scaleX(1); }
+  .bag-btn{
+    font-family:var(--f-mono); font-size:11.5px; color:#000; background:transparent;
+    border:.75px solid #000; padding:7px 14px; border-radius:99px; display:flex; align-items:center; gap:8px;
+    transition:background .2s;
+  }
+  .bag-btn:hover{ background:var(--lime); }
+  .nav-right{ display:flex; align-items:center; gap:10px; }
+
+  main{ padding-top:67px; }
+  .shop-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap;
+    padding:44px var(--shop-edge) 0;
+  }
+  .shop-title{ font-family:var(--f-heading); font-weight:500; font-size:clamp(34px,4.6vw,60px); line-height:1; margin:0; letter-spacing:-.01em; }
+  .shop-title em{ font-style:italic; }
+  .shop-note{ font-family:var(--f-mono); font-size:11px; letter-spacing:.04em; margin:0; }
+
+  .bar{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding:22px var(--shop-edge) 14px;
+    border-bottom:.75px solid #000; margin-top:22px;
+    position:sticky; top:55px; z-index:50; background:var(--ivory);
+  }
+  .tabs{ display:flex; flex-wrap:wrap; gap:4px 22px; }
+  .tab{
+    background:none; border:0; padding:2px 0; font-family:var(--f-body); font-size:14px; font-weight:500; color:#000;
+    opacity:.55; border-bottom:.75px solid transparent; transition:opacity .2s;
+  }
+  .tab:hover{ opacity:1; }
+  .tab.active{ opacity:1; border-bottom-color:#000; }
+  .tab.sub{ font-size:13px; font-weight:400; }
+  .tab[hidden]{ display:none; }
+  .tabs-sep{ width:.75px; background:#000; opacity:.35; margin:2px 0; }
+  .bar-r{ display:flex; align-items:center; gap:18px; font-family:var(--f-mono); font-size:11.5px; }
+  .bar-r select{
+    font-family:var(--f-mono); font-size:11.5px; color:#000; background:transparent;
+    border:.75px solid #000; border-radius:99px; padding:6px 12px; cursor:pointer;
+  }
+
+  .grid{
+    display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:34px 10px;
+    padding:20px var(--shop-edge) 80px;
+  }
+  .card{ display:flex; flex-direction:column; gap:10px; }
+  .card[hidden]{ display:none; }
+  .card-img{ position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--paper); }
+  .card-img .img-a, .card-img .img-b{ position:absolute; inset:0; }
+  .card-img svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .card-img .img-b{ opacity:0; transition:opacity .45s ease; }
+  .card-img .img-b svg{ transform:scale(1.7) rotate(-4deg); transform-origin:var(--ox,30%) var(--oy,70%); }
+  .card-img .img-b::after{ content:''; position:absolute; inset:0; background:var(--paper); mix-blend-mode:multiply; opacity:.0; }
+  .card:hover .img-b, .card:focus-within .img-b{ opacity:1; }
+  .add{
+    position:absolute; left:10px; right:10px; bottom:10px; height:38px;
+    background:var(--ivory); color:#000; border:.75px solid #000; border-radius:99px;
+    font-family:var(--f-mono); font-size:11.5px; letter-spacing:.03em; font-weight:500;
+    transform:translateY(calc(100% + 14px)); transition:transform .3s ease, background .2s;
+  }
+  .card:hover .add, .add:focus-visible{ transform:translateY(0); }
+  .add:hover{ background:var(--lime); }
+  .add.in{ background:var(--charcoal); color:var(--ivory); }
+  .card-info{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+  .card-l{ display:flex; flex-direction:column; gap:3px; min-width:0; }
+  .card-artist{ font-family:var(--f-mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; }
+  .card-title{ margin:0; font-family:var(--f-body); font-weight:600; font-size:14.5px; line-height:1.25; }
+  .card-ed{ font-family:var(--f-mono); font-size:9.5px; }
+  .card-price{ font-family:var(--f-body); font-weight:600; font-size:14px; white-space:nowrap; }
+  .empty{ grid-column:1/-1; text-align:center; font-family:var(--f-mono); font-size:12px; padding:80px 0; }
+
+  /* bag drawer */
+  .scrim{ position:fixed; inset:0; background:rgba(0,0,0,.28); z-index:1100; opacity:0; pointer-events:none; transition:opacity .3s; }
+  .scrim.open{ opacity:1; pointer-events:auto; }
+  .drawer{
+    position:fixed; top:0; right:0; bottom:0; width:min(420px,100%); z-index:1200; background:var(--ivory);
+    border-left:.75px solid #000; transform:translateX(100%); transition:transform .4s ease;
+    display:flex; flex-direction:column;
+  }
+  .drawer.open{ transform:translateX(0); }
+  .drawer-head{ display:flex; justify-content:space-between; align-items:center; padding:20px 22px; border-bottom:.75px solid #000; }
+  .drawer-head h2{ margin:0; font-family:var(--f-heading); font-weight:500; font-size:26px; }
+  .x{ background:none; border:.75px solid #000; border-radius:99px; width:34px; height:34px; font-size:16px; line-height:1; }
+  .x:hover{ background:var(--lime); }
+  .drawer-body{ flex:1; overflow-y:auto; padding:6px 22px; }
+  .line{ display:grid; grid-template-columns:72px 1fr auto; gap:14px; padding:16px 0; border-bottom:.75px solid #000; align-items:start; }
+  .line .th{ width:72px; aspect-ratio:4/5; position:relative; overflow:hidden; background:var(--paper); }
+  .line .th svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .line b{ display:block; font-weight:600; font-size:14px; }
+  .line small{ display:block; font-family:var(--f-mono); font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; margin-top:3px; }
+  .line .rm{ background:none; border:0; padding:0; margin-top:10px; font-family:var(--f-mono); font-size:10.5px; text-decoration:underline; color:#000; }
+  .line .rm:hover{ color:#eb4025; }
+  .line .pr{ font-weight:600; font-size:14px; }
+  .drawer-empty{ font-family:var(--f-mono); font-size:12px; padding:40px 0; text-align:center; }
+  .drawer-foot{ border-top:.75px solid #000; padding:18px 22px 22px; }
+  .sub-row{ display:flex; justify-content:space-between; font-weight:600; font-size:15px; margin-bottom:6px; }
+  .drawer-foot p{ font-family:var(--f-mono); font-size:10.5px; margin:0 0 14px; }
+  .checkout{
+    width:100%; height:48px; border-radius:99px; border:.75px solid #000; background:var(--lime);
+    font-family:var(--f-body); font-weight:600; font-size:14px; color:#000; transition:background .2s;
+  }
+  .checkout:hover{ background:var(--lime-deep); }
+  .checkout:disabled{ opacity:.4; cursor:not-allowed; background:transparent; }
+  .co-note{ display:none; margin-top:12px; font-family:var(--f-mono); font-size:11px; color:#5f8a1f; }
+  .co-note.show{ display:block; }
+
+/* ---------------- FOOTER ---------------- */
+  footer{ background:var(--ivory); border-top:.75px solid #000; padding:52px var(--edge) 28px; }
+  .foot-top{ display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; padding-bottom:40px; border-bottom:.75px solid #000; }
+  .foot-brand .nav-mark-text{ font-size:28px; }
+  .foot-brand p{ color:#000; font-size:13px; font-weight:300; max-width:300px; margin:14px 0 0; line-height:1.6; }
+  .foot-cols{ display:flex; gap:64px; flex-wrap:wrap; }
+  .foot-col h4{ font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; color:#000; text-transform:uppercase; margin:0 0 16px; font-weight:500; }
+  .foot-col a, .foot-col span{ display:block; font-size:13.5px; color:#000; opacity:.82; margin-bottom:11px; font-weight:400; }
+  .foot-col a:hover{ opacity:1; color:#5f8a1f; }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding-top:22px; }
+  .foot-bottom p{ font-family:var(--f-mono); font-size:11px; color:#000; margin:0; }
+  .foot-legal{ display:flex; gap:20px; }
+  .foot-legal a{ font-family:var(--f-mono); font-size:11px; color:#000; }
+  .foot-legal a:hover{ color:#000; }
+
+  @media (max-width:1100px){ .grid{ grid-template-columns:repeat(3, minmax(0,1fr)); } }
+  @media (max-width:980px){
+    .nav-links, .nav-status{ display:none; }
+    .nav-burger{ display:block; }
+  }
+  @media (max-width:700px){
+    .grid{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:26px 8px; }
+    .add{ transform:none; left:auto; width:auto; padding:0 12px; height:30px; font-size:10.5px; right:6px; bottom:6px; }
+    .card-title{ font-size:13.5px; }
+    .bar{ position:static; padding-block:14px 10px; }
+    .tabs{ flex-wrap:nowrap; overflow-x:auto; width:100%; padding-bottom:4px; scrollbar-width:none; }
+    .tab{ white-space:nowrap; flex-shrink:0; }
+    .bar-r{ width:100%; justify-content:flex-end; }
+    .bar-r .count{ display:none; }
+    .foot-top{ flex-direction:column; }
+    .tabs{ gap:4px 16px; }
+    footer{ padding-inline:var(--shop-edge); }
+  }
+  @media (hover:none){ .add{ transform:none; left:auto; width:auto; padding:0 12px; height:30px; font-size:10.5px; right:6px; bottom:6px; } }
+</style>
+</head>
+<body class="shop-edge">
+
+<nav class="nav is-scrolled" id="nav">
+  <a href="index.html" class="nav-mark">
+    <span class="pulse"></span>
+    <span>
+      <span class="nav-mark-text">Slept on it</span>
+      <span class="nav-mark-sub">Store · Community</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="shop.html" class="on">Shop</a></li>
+    <li><a href="index.html#community">Community</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="bag-btn" id="bagBtn" type="button"><span>Bag (<span id="bagCount">0</span>)</span></button>
+    <button class="nav-burger" id="burger" aria-label="Open menu"><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-panel" id="mpanel">
+  <a href="shop.html">Shop</a>
+  <a href="index.html#community">Community</a>
+  <a href="index.html#about">About Us</a>
+  <a href="index.html">Home</a>
+</div>
+
+<main>
+  <div class="shop-head">
+    <h1 class="shop-title">The whole <em>shelf.</em></h1>
+    <p class="shop-note">Original work, 1/1 or small editions · always open</p>
+  </div>
+
+  <div class="bar" id="bar">
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="artwork">Artwork</button>
+      <button class="tab" data-cat="craft">Craft</button>
+      <span class="tabs-sep" aria-hidden="true"></span>
+      <button class="tab sub" data-cat="artwork" data-sub="painting">Painting</button>
+      <button class="tab sub" data-cat="artwork" data-sub="sculpture">Sculpture</button>
+      <button class="tab sub" data-cat="artwork" data-sub="print">Print</button>
+      <button class="tab sub" data-cat="craft" data-sub="objects">Objects</button>
+      <button class="tab sub" data-cat="craft" data-sub="clothing">Clothing</button>
+      <button class="tab sub" data-cat="craft" data-sub="furniture">Furniture</button>
+      <button class="tab sub" data-cat="craft" data-sub="stationery">Stationery</button>
+    </div>
+    <div class="bar-r">
+      <span class="count"><span id="count">25</span> products</span>
+      <label><span class="sr" hidden>Sort</span>
+        <select id="sort" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+          <option value="az">Name: A–Z</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <section class="grid" id="grid" aria-label="Products">
+    <article class="card" data-id="1" data-cat="artwork" data-sub="painting" data-price="480" data-title="Wave Under the Blanket" data-order="0">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e"/><ellipse cx="115" cy="55" rx="55" ry="45" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        <button class="add" type="button" data-id="1" aria-label="Add Wave Under the Blanket to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Ah-young Shin</span><h3 class="card-title">Wave Under the Blanket</h3><span class="card-ed">1/1 · oil</span></div>
+        <span class="card-price">$480</span>
+      </div>
+    </article>
+    <article class="card" data-id="2" data-cat="artwork" data-sub="print" data-price="135" data-title="Untitled (Window)" data-order="1">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084"/><circle cx="115" cy="35" r="30" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <button class="add" type="button" data-id="2" aria-label="Add Untitled (Window) to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">K. Bahn</span><h3 class="card-title">Untitled (Window)</h3><span class="card-ed">Ed. 5/20</span></div>
+        <span class="card-price">$135</span>
+      </div>
+    </article>
+    <article class="card" data-id="3" data-cat="artwork" data-sub="sculpture" data-price="560" data-title="Afterimage" data-order="2">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="60" rx="45" ry="70" fill="#8a8f5c" opacity="0.26"/><path d="M0 0 L160 160 M160 0 L0 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="85" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <button class="add" type="button" data-id="3" aria-label="Add Afterimage to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Studio Noa</span><h3 class="card-title">Afterimage</h3><span class="card-ed">1/1 ceramic</span></div>
+        <span class="card-price">$560</span>
+      </div>
+    </article>
+    <article class="card" data-id="4" data-cat="craft" data-sub="objects" data-price="95" data-title="Night Light" data-order="3">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.6"/><circle cx="80" cy="60" r="10" fill="#9fdb4e"/><circle cx="80" cy="60" r="22" stroke="#9fdb4e" stroke-opacity="0.5" fill="none"/></svg></div>
+        <button class="add" type="button" data-id="4" aria-label="Add Night Light to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Studio Geum</span><h3 class="card-title">Night Light</h3><span class="card-ed">Ed. 8/40</span></div>
+        <span class="card-price">$95</span>
+      </div>
+    </article>
+    <article class="card" data-id="5" data-cat="artwork" data-sub="painting" data-price="310" data-title="Quiet Green" data-order="4">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.5"/><ellipse cx="120" cy="45" rx="35" ry="30" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <button class="add" type="button" data-id="5" aria-label="Add Quiet Green to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Ha-neul Jung</span><h3 class="card-title">Quiet Green</h3><span class="card-ed">1/1 · acrylic</span></div>
+        <span class="card-price">$310</span>
+      </div>
+    </article>
+    <article class="card" data-id="6" data-cat="artwork" data-sub="print" data-price="120" data-title="Pillow Crease" data-order="5">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="40" cy="100" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <button class="add" type="button" data-id="6" aria-label="Add Pillow Crease to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">sso</span><h3 class="card-title">Pillow Crease</h3><span class="card-ed">Ed. 2/8</span></div>
+        <span class="card-price">$120</span>
+      </div>
+    </article>
+    <article class="card" data-id="7" data-cat="artwork" data-sub="painting" data-price="220" data-title="Static Hour" data-order="6">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M0 105 C 55 75,90 135,145 95 S 160 60,160 60 V160 H0Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="45" cy="55" rx="40" ry="35" fill="#d8fa8e" opacity="0.5"/></svg></div>
+        <button class="add" type="button" data-id="7" aria-label="Add Static Hour to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Atelier Mu</span><h3 class="card-title">Static Hour</h3><span class="card-ed">1/1 · gouache</span></div>
+        <span class="card-price">$220</span>
+      </div>
+    </article>
+    <article class="card" data-id="8" data-cat="artwork" data-sub="print" data-price="175" data-title="Low Light Study" data-order="7">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.85"/><circle cx="45" cy="40" r="26" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <button class="add" type="button" data-id="8" aria-label="Add Low Light Study to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Yoon-seul Baek</span><h3 class="card-title">Low Light Study</h3><span class="card-ed">Ed. 4/15</span></div>
+        <span class="card-price">$175</span>
+      </div>
+    </article>
+    <article class="card" data-id="9" data-cat="artwork" data-sub="painting" data-price="260" data-title="Radiator Hum" data-order="8">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="100" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><circle cx="45" cy="50" r="16" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <button class="add" type="button" data-id="9" aria-label="Add Radiator Hum to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Ah-young Shin</span><h3 class="card-title">Radiator Hum</h3><span class="card-ed">1/1 · oil</span></div>
+        <span class="card-price">$260</span>
+      </div>
+    </article>
+    <article class="card" data-id="10" data-cat="artwork" data-sub="print" data-price="140" data-title="Insomnia Draft No. 2" data-order="9">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="80" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        <button class="add" type="button" data-id="10" aria-label="Add Insomnia Draft No. 2 to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">K. Bahn</span><h3 class="card-title">Insomnia Draft No. 2</h3><span class="card-ed">Ed. 6/20</span></div>
+        <span class="card-price">$140</span>
+      </div>
+    </article>
+    <article class="card" data-id="11" data-cat="artwork" data-sub="sculpture" data-price="390" data-title="Held Breath" data-order="10">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="30" ry="26" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <button class="add" type="button" data-id="11" aria-label="Add Held Breath to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Studio Noa</span><h3 class="card-title">Held Breath</h3><span class="card-ed">1/1 ceramic</span></div>
+        <span class="card-price">$390</span>
+      </div>
+    </article>
+    <article class="card" data-id="12" data-cat="craft" data-sub="objects" data-price="105" data-title="Bedside Lamp" data-order="11">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="120" cy="60" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <button class="add" type="button" data-id="12" aria-label="Add Bedside Lamp to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Studio Geum</span><h3 class="card-title">Bedside Lamp</h3><span class="card-ed">Ed. 10/40</span></div>
+        <span class="card-price">$105</span>
+      </div>
+    </article>
+    <article class="card" data-id="13" data-cat="artwork" data-sub="painting" data-price="340" data-title="Faded Curtain" data-order="12">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e4d5"/><path d="M160 105 C 105 75,70 135,15 95 S 0 60,0 60 V160 H160Z" fill="#c8cf9e" opacity="0.85"/><ellipse cx="115" cy="45" rx="35" ry="30" fill="#d8fa8e" opacity="0.55"/></svg></div>
+        <button class="add" type="button" data-id="13" aria-label="Add Faded Curtain to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Ha-neul Jung</span><h3 class="card-title">Faded Curtain</h3><span class="card-ed">1/1 · acrylic</span></div>
+        <span class="card-price">$340</span>
+      </div>
+    </article>
+    <article class="card" data-id="14" data-cat="artwork" data-sub="print" data-price="150" data-title="Static on the Ceiling" data-order="13">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M0 25 L160 45 L130 160 L0 130Z" fill="#c7a084" opacity="0.7"/><circle cx="45" cy="115" r="22" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <button class="add" type="button" data-id="14" aria-label="Add Static on the Ceiling to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">sso</span><h3 class="card-title">Static on the Ceiling</h3><span class="card-ed">Ed. 3/8</span></div>
+        <span class="card-price">$150</span>
+      </div>
+    </article>
+    <article class="card" data-id="15" data-cat="artwork" data-sub="painting" data-price="230" data-title="Thin Walls" data-order="14">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="60" cy="100" rx="45" ry="70" fill="#8a8f5c" opacity="0.24"/><path d="M0 0 L160 160" stroke="#9fdb4e" stroke-width="1" opacity="0.5"/><circle cx="115" cy="45" r="18" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <button class="add" type="button" data-id="15" aria-label="Add Thin Walls to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Atelier Mu</span><h3 class="card-title">Thin Walls</h3><span class="card-ed">1/1 · ink</span></div>
+        <span class="card-price">$230</span>
+      </div>
+    </article>
+    <article class="card" data-id="16" data-cat="artwork" data-sub="print" data-price="190" data-title="Kitchen Light at 3am" data-order="15">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M20 100 Q 80 20 140 100Z" fill="#d9a9a0" opacity="0.5"/><circle cx="110" cy="50" r="14" fill="#9fdb4e"/></svg></div>
+        <button class="add" type="button" data-id="16" aria-label="Add Kitchen Light at 3am to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Yoon-seul Baek</span><h3 class="card-title">Kitchen Light at 3am</h3><span class="card-ed">Ed. 5/15</span></div>
+        <span class="card-price">$190</span>
+      </div>
+    </article>
+    <article class="card" data-id="17" data-cat="artwork" data-sub="painting" data-price="205" data-title="Folded Note" data-order="16">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M0 90 L 50 60 L 90 85 L 160 45 V160 H0Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="40" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <button class="add" type="button" data-id="17" aria-label="Add Folded Note to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Atelier Mu</span><h3 class="card-title">Folded Note</h3><span class="card-ed">1/1 · ink</span></div>
+        <span class="card-price">$205</span>
+      </div>
+    </article>
+    <article class="card" data-id="18" data-cat="artwork" data-sub="painting" data-price="295" data-title="Static Blue" data-order="17">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="100" cy="90" rx="70" ry="30" fill="#46423a" opacity="0.08"/><path d="M30 20 C 70 0 110 10 130 35 S 130 80 90 75 S 20 60 30 20Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <button class="add" type="button" data-id="18" aria-label="Add Static Blue to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Ah-young Shin</span><h3 class="card-title">Static Blue</h3><span class="card-ed">1/1 · oil</span></div>
+        <span class="card-price">$295</span>
+      </div>
+    </article>
+    <article class="card" data-id="19" data-cat="artwork" data-sub="print" data-price="150" data-title="Untitled (Ceiling)" data-order="18">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece7d8"/><path d="M160 25 L0 45 L30 160 L160 130Z" fill="#c7a084" opacity="0.75"/><circle cx="115" cy="45" r="24" fill="#d8fa8e" opacity="0.7"/></svg></div>
+        <button class="add" type="button" data-id="19" aria-label="Add Untitled (Ceiling) to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">K. Bahn</span><h3 class="card-title">Untitled (Ceiling)</h3><span class="card-ed">Ed. 7/20</span></div>
+        <span class="card-price">$150</span>
+      </div>
+    </article>
+    <article class="card" data-id="20" data-cat="artwork" data-sub="sculpture" data-price="430" data-title="Warm Object" data-order="19">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><ellipse cx="90" cy="70" rx="50" ry="75" fill="#8a8f5c" opacity="0.26"/><circle cx="40" cy="120" r="16" fill="#d8fa8e" opacity="0.85"/></svg></div>
+        <button class="add" type="button" data-id="20" aria-label="Add Warm Object to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Studio Noa</span><h3 class="card-title">Warm Object</h3><span class="card-ed">1/1 ceramic</span></div>
+        <span class="card-price">$430</span>
+      </div>
+    </article>
+    <article class="card" data-id="21" data-cat="craft" data-sub="furniture" data-price="115" data-title="Nightstand" data-order="20">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><path d="M140 100 Q 80 20 20 100Z" fill="#d9a9a0" opacity="0.55"/><circle cx="115" cy="120" r="12" fill="#9fdb4e"/></svg></div>
+        <button class="add" type="button" data-id="21" aria-label="Add Nightstand to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Studio Geum</span><h3 class="card-title">Nightstand</h3><span class="card-ed">Ed. 12/40</span></div>
+        <span class="card-price">$115</span>
+      </div>
+    </article>
+    <article class="card" data-id="22" data-cat="artwork" data-sub="painting" data-price="355" data-title="Half-Drawn Curtain" data-order="21">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e9e5d3"/><path d="M160 90 L 110 60 L 70 85 L0 45 V160 H160Z" fill="#7c8f5e" opacity="0.45"/><ellipse cx="120" cy="45" rx="28" ry="24" fill="#9fdb4e" opacity="0.4"/></svg></div>
+        <button class="add" type="button" data-id="22" aria-label="Add Half-Drawn Curtain to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Ha-neul Jung</span><h3 class="card-title">Half-Drawn Curtain</h3><span class="card-ed">1/1 · acrylic</span></div>
+        <span class="card-price">$355</span>
+      </div>
+    </article>
+    <article class="card" data-id="23" data-cat="artwork" data-sub="print" data-price="135" data-title="Under the Doona" data-order="22">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#ece6d6"/><ellipse cx="50" cy="110" rx="60" ry="28" fill="#46423a" opacity="0.08"/><path d="M130 140 C 90 160 50 150 30 125 S 30 80 70 85 S 140 100 130 140Z" fill="#d8fa8e" opacity="0.75"/></svg></div>
+        <button class="add" type="button" data-id="23" aria-label="Add Under the Doona to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">sso</span><h3 class="card-title">Under the Doona</h3><span class="card-ed">Ed. 4/8</span></div>
+        <span class="card-price">$135</span>
+      </div>
+    </article>
+    <article class="card" data-id="24" data-cat="craft" data-sub="clothing" data-price="85" data-title="Hand-dyed Sleep Shirt" data-order="23">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#e6e1d1"/><path d="M55 30 L60 20 L100 20 L105 30 L130 45 L115 65 L100 55 V140 H60 V55 L45 65 L30 45Z" fill="#8a8f5c" opacity="0.4"/><circle cx="80" cy="35" r="8" fill="#d8fa8e" opacity="0.8"/></svg></div>
+        <button class="add" type="button" data-id="24" aria-label="Add Hand-dyed Sleep Shirt to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">sso</span><h3 class="card-title">Hand-dyed Sleep Shirt</h3><span class="card-ed">Ed. 6/25</span></div>
+        <span class="card-price">$85</span>
+      </div>
+    </article>
+    <article class="card" data-id="25" data-cat="craft" data-sub="stationery" data-price="28" data-title="Insomnia Notebook" data-order="24">
+      <div class="card-img">
+        <div class="img-a"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div>
+        <div class="img-b" aria-hidden="true"><svg preserveAspectRatio="xMidYMid slice" aria-hidden="true" viewBox="0 0 160 160"><rect width="160" height="160" fill="#eee9db"/><rect x="35" y="25" width="90" height="110" rx="2" fill="#c7a084" opacity="0.55"/><rect x="35" y="25" width="14" height="110" fill="#46423a" opacity="0.12"/><circle cx="100" cy="70" r="14" fill="#9fdb4e" opacity="0.7"/></svg></div>
+        <button class="add" type="button" data-id="25" aria-label="Add Insomnia Notebook to bag"><span>Add to bag</span></button>
+      </div>
+      <div class="card-info">
+        <div class="card-l"><span class="card-artist">Yoon-seul Baek</span><h3 class="card-title">Insomnia Notebook</h3><span class="card-ed">Ed. 14/50</span></div>
+        <span class="card-price">$28</span>
+      </div>
+    </article>
+    <p class="empty" id="empty" hidden>Nothing here yet.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-inline:0">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="nav-mark-text">Slept on it</span>
+        <p>A shop and a community for young Australian artists — a running shelf of original work, an exhibition archive, and a late-night talk room, all in one place.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Shop</h4>
+          <a href="shop.html">All products</a>
+          <a href="shop.html#artwork">Artwork</a>
+          <a href="shop.html#craft">Craft</a>
+        </div>
+        <div class="foot-col">
+          <h4>Community</h4>
+          <a href="index.html#archive">Exhibition Archive</a>
+          <a href="index.html#consultation">Night Talk</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 SLEPT ON IT. ALL RIGHTS RESERVED.</p>
+      <div class="foot-legal"><a href="#">Terms</a><a href="#">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <div class="drawer-head"><h2>Bag</h2><button class="x" id="closeBag" aria-label="Close bag">×</button></div>
+  <div class="drawer-body" id="bagBody"></div>
+  <div class="drawer-foot">
+    <div class="sub-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
+    <p>Each piece is original — one per order. Shipping calculated at checkout.</p>
+    <button class="checkout" id="checkout" type="button" disabled>Checkout</button>
+    <div class="co-note" id="coNote">Online payment is being set up — it will open soon. Your bag is saved.</div>
+  </div>
+</aside>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger'), mpanel = document.getElementById('mpanel');
+  burger.addEventListener('click', function(){ mpanel.classList.toggle('open'); });
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var grid = document.getElementById('grid');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var subTabs = tabs.filter(function(t){ return t.dataset.sub; });
+  var sep = document.querySelector('.tabs-sep');
+  var countEl = document.getElementById('count'), emptyEl = document.getElementById('empty');
+  var sortEl = document.getElementById('sort');
+  var state = { cat:'all', sub:null };
+
+  // second hover image: vary the crop per card
+  cards.forEach(function(c, i){
+    var b = c.querySelector('.img-b svg');
+    b.style.setProperty('--ox', (20 + (i*37)%60) + '%');
+    b.style.setProperty('--oy', (25 + (i*53)%55) + '%');
+  });
+
+  function render(){
+    var n = 0;
+    cards.forEach(function(c){
+      var ok = (state.cat === 'all' || c.dataset.cat === state.cat) && (!state.sub || c.dataset.sub === state.sub);
+      c.hidden = !ok; if(ok) n++;
+    });
+    subTabs.forEach(function(t){ t.hidden = state.cat !== 'all' && t.dataset.cat !== state.cat; });
+    sep.hidden = false;
+    tabs.forEach(function(t){
+      var on = t.dataset.sub ? (t.dataset.sub === state.sub) : (!state.sub && t.dataset.cat === state.cat);
+      t.classList.toggle('active', !!on);
+    });
+    countEl.textContent = n; emptyEl.hidden = n !== 0;
+  }
+  function sortNow(){
+    var v = sortEl.value;
+    var arr = cards.slice().sort(function(a,b){
+      if(v === 'low') return a.dataset.price - b.dataset.price;
+      if(v === 'high') return b.dataset.price - a.dataset.price;
+      if(v === 'az') return a.dataset.title.localeCompare(b.dataset.title);
+      return a.dataset.order - b.dataset.order;
+    });
+    arr.forEach(function(c){ grid.insertBefore(c, emptyEl); });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      state.cat = t.dataset.cat; state.sub = t.dataset.sub || null;
+      try{ history.replaceState(null, '', '#' + (state.sub || (state.cat === 'all' ? '' : state.cat))); }catch(e){}
+      render();
+    });
+  });
+  sortEl.addEventListener('change', sortNow);
+  function fromHash(){
+    var h = (location.hash || '').replace('#','');
+    var s = subTabs.filter(function(t){ return t.dataset.sub === h; })[0];
+    if(s){ state.cat = s.dataset.cat; state.sub = s.dataset.sub; }
+    else if(h === 'artwork' || h === 'craft'){ state.cat = h; state.sub = null; }
+    else { state.cat = 'all'; state.sub = null; }
+    render();
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+
+  // ----- bag -----
+  var bag = [];
+  try{ bag = JSON.parse(localStorage.getItem('soi-bag') || '[]'); }catch(e){ bag = []; }
+  var byId = {};
+  cards.forEach(function(c){
+    byId[c.dataset.id] = { id:c.dataset.id, title:c.dataset.title, price:+c.dataset.price,
+      artist:c.querySelector('.card-artist').textContent, svg:c.querySelector('.img-a').innerHTML };
+  });
+  bag = bag.filter(function(id){ return byId[id]; });
+  var drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim');
+  var body = document.getElementById('bagBody');
+  function save(){ try{ localStorage.setItem('soi-bag', JSON.stringify(bag)); }catch(e){} }
+  function drawBag(){
+    document.getElementById('bagCount').textContent = bag.length;
+    var total = 0;
+    if(!bag.length){ body.innerHTML = '<p class="drawer-empty">Your bag is empty.</p>'; }
+    else {
+      body.innerHTML = bag.map(function(id){
+        var p = byId[id]; total += p.price;
+        return '<div class="line"><div class="th">' + p.svg + '</div><div><b>' + p.title + '</b><small>' + p.artist + '</small><button class="rm" data-id="' + id + '">Remove</button></div><span class="pr">$' + p.price + '</span></div>';
+      }).join('');
+    }
+    document.getElementById('subtotal').textContent = '$' + total;
+    document.getElementById('checkout').disabled = !bag.length;
+    document.getElementById('coNote').classList.remove('show');
+    cards.forEach(function(c){
+      var a = c.querySelector('.add'), inBag = bag.indexOf(c.dataset.id) > -1;
+      a.classList.toggle('in', inBag); a.firstChild.textContent = inBag ? 'In your bag' : 'Add to bag';
+    });
+  }
+  function openBag(o){
+    drawer.classList.toggle('open', o); scrim.classList.toggle('open', o);
+    drawer.setAttribute('aria-hidden', o ? 'false' : 'true');
+  }
+  grid.addEventListener('click', function(e){
+    var a = e.target.closest('.add'); if(!a) return;
+    var id = a.dataset.id;
+    if(bag.indexOf(id) < 0){ bag.push(id); save(); drawBag(); }
+    openBag(true);
+  });
+  body.addEventListener('click', function(e){
+    var r = e.target.closest('.rm'); if(!r) return;
+    bag = bag.filter(function(id){ return id !== r.dataset.id; }); save(); drawBag();
+  });
+  document.getElementById('bagBtn').addEventListener('click', function(){ openBag(true); });
+  document.getElementById('closeBag').addEventListener('click', function(){ openBag(false); });
+  scrim.addEventListener('click', function(){ openBag(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') openBag(false); });
+  document.getElementById('checkout').addEventListener('click', function(){ document.getElementById('coNote').classList.add('show'); });
+  drawBag();
+})();
+</script>
+</body>
+</html>
