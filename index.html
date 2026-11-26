@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Urbanist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Inter+Tight:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Urbanist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -28,7 +28,7 @@
     --hero-deep: #221f19;
 
     --f-script: 'Mea Culpa', cursive;
-    --f-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --f-heading: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --f-body: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
     --f-mono: 'JetBrains Mono', ui-monospace, monospace;
 
@@ -539,6 +539,11 @@
     .apply-banner .btn{ width:100%; justify-content:center; }
     .apply-row{ flex-direction:column; }
   }
+  /* headline sans: tight and quiet, like the reference */
+  .section-head h2, .interview-heading, .chapter h3, .exhibit-poster-title, .composer h4, .t-step h3,
+  .apply-banner h3, .notify-card h2, .mobile-panel a, .hero-tagline, .interview-quote{ letter-spacing:-.025em; }
+  .section-head h2, .interview-heading{ line-height:1.04; }
+
   /* ---------- Intro: full-screen video, then a shutter lift into the site ---------- */
   .intro{ display:none; }
   .intro-off .intro{ display:none !important; }
